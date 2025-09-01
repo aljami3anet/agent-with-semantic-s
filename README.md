@@ -7,7 +7,7 @@ graph TD
     A[User] --> B(Frontend: Web UI)
     B --> C{HTTP Request: /generate}
     C --> D[FastAPI Backend]
-    D --> E{Call Agent.run()}
+    D --> E{"Call Agent.run()"}
     E --> F[AI Coder Agent]
     F -- "Semantic Query" --> G[Semantic Search Tool]
     G -- "Query Embedding" --> H[Embedding Generator]
