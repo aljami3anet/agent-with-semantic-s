@@ -32,24 +32,24 @@ The agent uses a LangGraph state machine (`GraphState`) to orchestrate nodes in 
 
 ```mermaid
 graph TD
-    A[Start: Task Input (CLI or Dashboard)] --> B[Generate Code Node<br/>LLM + Tools + Memory Search]
-    B --> C[Human Approval Node<br/>WebSocket Pause & UI Decision]
-    C --> D{Tests Passed?}
-    D -->|No| E[Recovery Node<br/>Error Fix + Triangulation<br/>Alternate Model]
+    A["Start: Task Input<br/>CLI or Dashboard"] --> B["Generate Code Node<br/>LLM + Tools + Memory Search"]
+    B --> C["Human Approval Node<br/>WebSocket Pause & UI Decision"]
+    C --> D{"Tests Passed?"}
+    D -->|No| E["Recovery Node<br/>Error Fix + Triangulation<br/>Alternate Model"]
     E --> B
-    D -->|Yes| F[Profile Code Node<br/>cProfile Hotspots]
-    F --> G{Optimize Needed?}
+    D -->|Yes| F["Profile Code Node<br/>cProfile Hotspots"]
+    F --> G{"Optimize Needed?"}
     G -->|Yes| B
-    G -->|No| H[Deploy Node<br/>Docker/K8s/CI-CD Files]
-    H --> I[Git Commit & PR Creation<br/>PyGithub Integration]
-    I --> J[End: Success + Memory Save]
+    G -->|No| H["Deploy Node<br/>Docker/K8s/CI-CD Files"]
+    H --> I["Git Commit & PR Creation<br/>PyGithub Integration"]
+    I --> J["End: Success + Memory Save"]
     
     style A fill:#e1f5fe
     style J fill:#c8e6c9
     style E fill:#fff3e0
 ```
 
-This flowchart visualizes the workflow, compatible with GitHub's native Mermaid rendering. For more on profile READMEs with diagrams, refer to [GitHub Docs on managing profile READMEs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
+This flowchart visualizes the workflow, compatible with GitHub's native Mermaid rendering [mermaid-js.github.io](https://mermaid-js.github.io/mermaid/#/flowchart?id=node-labels). For troubleshooting parse errors (e.g., special characters in labels like parentheses), enclose labels in double quotes and avoid unescaped syntax [ardalis.com](https://ardalis.com/github-diagrams-with-mermaid/). For more on profile READMEs with diagrams, refer to [GitHub Docs on managing profile READMEs](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
 
 ## Quick Start
 
@@ -157,7 +157,7 @@ MIT License—see [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 - Built on [LangChain/LangGraph](https://langchain-ai.github.io/langgraph/), [Pydantic](https://pydantic.dev/), [PyGithub](https://pygithub.readthedocs.io/), and [FAISS](https://faiss.ai/).
-- Diagram rendering powered by Mermaid [mermaid.js.org](https://mermaid.js.org/).
+- Diagram rendering powered by Mermaid [mermaid-js.github.io](https://mermaid-js.github.io/mermaid-live-editor/).
 - Thanks to open-source contributors for tools like Ollama and Redis.
 - README inspired by [awesome-readme list on GitHub](https://github.com/matiassingers/awesome-readme) and [DomPizzie's simple template](https://gist.github.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc).
 
